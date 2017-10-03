@@ -1,0 +1,72 @@
+body
+{
+	margin:0px;
+	padding:0px;
+	background:#f5f5f5;
+	font-family:'PT Sans',sans-serif;
+}
+
+.mainContainer
+{
+	margin:60px auto 0 auto;
+	width:600px;
+}
+
+.topNav
+{
+	font-family: 'PT Sans', sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	width:960px;
+	margin:0 auto;
+	letter-spacing:-1px\9;
+}
+
+.tabs li
+{
+	display:inline;
+}
+
+.tabs li a
+{
+	cursor: pointer;
+	padding:26px 13px 11px 12px;
+	border:1px solid #cccccc;
+	font-family:'PT Sans',sans-serif;
+	font-size:13px;
+	color:#666666;
+	font-weight:400;
+	text-transform:uppercase;
+}
+
+.tabs .tab-current
+{
+	padding: 37px 13px 12px 12px;
+	border-bottom:0px;
+	background:#ffffff;
+}
+
+.tabsContent
+{
+	border:1px solid #cccccc;
+	-moz-box-shadow: 3px 3px 5px #cccccc;
+	-webkit-box-shadow: 3px 3px 5px #cccccc;
+	box-shadow: 3px 3px 5px #cccccc;
+	background:#ffffff;
+	padding:20px 20px 20px 20px;
+	color:#666666;
+}
+
+ul.tabs
+{
+	margin: 0 0 11px 20px;
+}
+
+/*Firefox hack*/
+@-moz-document url-prefix()
+{
+	ul.tabs
+	{
+	   margin: 0 0 10px 20px;
+	}
+}

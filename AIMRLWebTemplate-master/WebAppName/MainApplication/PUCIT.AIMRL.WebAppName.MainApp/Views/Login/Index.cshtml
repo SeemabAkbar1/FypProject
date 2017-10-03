@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+@section Header
+{
+    @Scripts.Render("~/bundles/login")
+
+}
+
+<script type="text/javascript">
+    $(function () {
+        MyWebApp.UI.Logon.readyMain();
+
+    });
+</script>
+
+<div class="loginBgCon">
+    <div class="loginBox">
+        <div class="logoBox">
+            <a href="#">
+                @*<img src="@Url.Content(@System.Web.Configuration.WebConfigurationManager.AppSettings["LogoURLLogin"])" class="logo" alt="Logo" />*@
+            </a>
+
+        </div>
+        <div class="loginContent">
+            <p>Sign In to WebAppName</p>
+            <form method="post" id="signin" action="">
+                <ul class="login">
+                    <li>
+                        <input id="txtUserName" value="" title="username" tabindex="4"
+                               type="text" class="username" maxlength="200" />
+                    </li>
+                    <li>
+                        <input id="txtPassword" value="" title="password" tabindex="5"
+                               type="password" class="password" maxlength="100" />
+                    </li>
+                    <li class="logBtn"><a href="#" class="Login ui-state-default ui-corner-all" id="lnkLogin">Sign In</a></li>
+                    <li class="logged">
+                        <input id="chkKeepMeLoggedIn" type="checkbox" value="" /><label>Keep me logged in</label>
+                    </li>
+
+                    <li id="trbleShoot_li">
+                        <div class="trbleShoot">
+                            <p class="forgot" id="lnkforgotpassword">
+                                <span>Trouble signing in?</span><a href="https://google.com"
+                                                                   id="resend_password_link">Recover your password</a> or <a href="mailto:abc@test.com?subject= - Trouble signing in" id="lnkHelp">Help</a>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="note">
+                        The preferred browser for this application is Chrome, Firefox or IE 9(or higher)
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+
+

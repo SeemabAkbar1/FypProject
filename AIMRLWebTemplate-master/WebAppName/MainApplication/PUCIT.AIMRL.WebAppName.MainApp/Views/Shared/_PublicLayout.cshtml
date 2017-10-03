@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="User login page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="@Url.Content("~/images/avatars/favicon.ico")" />
+
+    <title>PUCIT - Student Request Portal</title>
+    <link rel="shortcut icon" href="@Url.Content("~/content/images/pgicon.ico")">
+    <script type="text/javascript">
+        window.MyWebAppBasePath = '@Url.Content("~")';
+
+        if (typeof console === "undefined") {
+            console = {};
+            console.log = function () { };
+        }
+    </script>
+    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/themes/base/css", "~/Content/css")*@
+    @*--------------JQuery Main Files@*--------------*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @*@*--------------Shared Plugins--------------*@
+    @Scripts.Render("~/bundles/sharedplugins")
+    @*@*--------------Global/Common@*--------------*@
+    @Scripts.Render("~/bundles/common")
+    @*----MyWebApp Core Javascript files-----*@
+    @Scripts.Render("~/bundles/mywebappmain")
+    @RenderSection("Header", false)
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-plugins/PineNotification/jquery.pnotify.js")"></script>
+    <link href="@Url.Content("~/Content/style/PineNotifications/jquery.pnotify.default.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style/PineNotifications/jquery.pnotify.default.icons.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style/PineNotifications/bootstrap.css")" rel="stylesheet" type="text/css" />
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- text fonts -->
+    @*<link rel="stylesheet" href="~/Content/fonts.googleapis.com.css" />*@
+    <!-- ace styles -->
+    <link rel="stylesheet" href="~/Content/ace.min.css" />
+    @*<link rel="stylesheet" href="~/Content/ace-rtl.min.css" />*@
+    @*<link rel="stylesheet" href="~/Content/form.css" />*@
+    @RenderSection("scripts", required: false)
+</head>
+<body class="login-layout">
+
+    <div id="divProgressOverlay" class="UpdateProgressOverlay">
+    </div>
+    <div id="divProgressStatus" class="UpdateProgressStatus">
+        <img src='@Url.Content("~/images/ajax_loader_blue_512.gif")' />
+    </div>
+    @RenderBody()
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <span class="bigger-120">
+                    <span class="blue bolder">PUCIT</span>
+                </span>
+                &nbsp; &nbsp;
+            </div>
+        </div>
+    </div>
+</body>
+</html>

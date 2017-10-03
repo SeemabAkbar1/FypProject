@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="@Url.Content("~/images/avatars/favicon.ico")" />
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css", "~/Content/css")
+    @Styles.Render("~/Content/bsmodal")
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>PUCIT - Student Request Portal</title>
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <script type="text/javascript">
+        window.MyWebAppBasePath = '@Url.Content("~")';
+        window.LoginPanelPath = '@Url.Action("LoginPanel", "Login")';
+
+        if (typeof console === "undefined") {
+            console = {};
+            console.log = function () { };
+        }
+
+        if (!Array.prototype.indexOf) {
+            Array.prototype.indexOf = function (obj, start) {
+                for (var i = (start || 0), j = this.length; i < j; i++) {
+                    if (this[i] === obj) { return i; }
+                }
+                return -1;
+            }
+        }
+    </script>
+
+
+    @*--------------JQuery Main Files@*--------------*@
+    @*@Scripts.Render("~/bundles/jquery")*@
+
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+
+    <script>
+        jQuery.browser = {};
+        (function () {
+            jQuery.browser.msie = false;
+            jQuery.browser.version = 0;
+            if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+                jQuery.browser.msie = true;
+                jQuery.browser.version = RegExp.$1;
+            }
+        })();
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryui")
+
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/style_custom.css" />
+    <link rel="stylesheet" href="~/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/daterangepicker.min.css" />
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="~/Content/bootstrap-duallistbox.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-multiselect.min.css" />
+    <link rel="stylesheet" href="~/Content/select2.min.css" />
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="~/Content/fonts.googleapis.com.css" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="~/Content/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="~/Content/ace-part2.min.css" class="ace-main-stylesheet" />
+    <![endif]-->
+    @Styles.Render("~/Content/autocomplete1")
+
+    @*@*--------------Shared Plugins--------------*@
+    @Scripts.Render("~/bundles/sharedplugins")
+    @Scripts.Render("~/bundles/autocomplete")
+    @*@*--------------Global/Common@*--------------*@
+    @Scripts.Render("~/bundles/common")
+    @*----MyWebApp Core Javascript files-----*@
+    @Scripts.Render("~/bundles/mywebappmain")
+    @*----Case Javascript files-----*@
+    @Scripts.Render("~/bundles/base")
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-plugins/Template/handlebars.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-plugins/PineNotification/jquery.pnotify.js")"></script>
+    <link href="@Url.Content("~/Content/style/PineNotifications/jquery.pnotify.default.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style/PineNotifications/icons/jquery.pnotify.default.icons.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style/PineNotifications/bootstrap.css")" rel="stylesheet" type="text/css" />
+
+
+    @*<script src="~/Scripts/jquery-2.1.4.min.js"></script>*@
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("Header", false)
+</head>
+<body class="no-skin">
+
+    <div id="divProgressOverlay" class="UpdateProgressOverlay">
+    </div>
+    <div id="divProgressStatus" class="UpdateProgressStatus">
+        <img src='@Url.Content("~/images/ajax_loader_blue_512.gif")' />
+    </div>
+
+    <script type="text/javascript">
+
+        String.prototype.format = function () {
+            var s = arguments[0];
+            for (var i = 0; i < arguments.length - 1; i++) {
+                var reg = new RegExp("\\{" + i + "\\}", "gm");
+                s = s.replace(reg, arguments[i + 1]);
+            }
+            return s;
+        }
+        String.prototype.endsWith = function (suffix) {
+            return (this.substr(this.length - suffix.length) === suffix);
+        }
+
+        String.prototype.startsWith = function (prefix) {
+            return (this.substr(0, prefix.length) === prefix);
+        }
+        //$.watermarker.setDefaults({left: 8 });
+        if ($.watermark) {
+            $.watermark.options = {
+                className: 'watermark',
+                useNative: false,
+                hideBeforeUnload: false
+            };
+        }
+
+        Handlebars.registerHelper('ifNotEqual', function (v1, v2, options) {
+            if (v1 != v2) {
+                return options.fn(this);
+            }
+            return options.inverse(this);
+        });
+
+        Handlebars.registerHelper('ifEqual', function (v1, v2, options) {
+            if (v1 == v2) {
+                return options.fn(this);
+            }
+            return options.inverse(this);
+        });
+
+        Handlebars.registerHelper('ifGreaterThan', function (v1, v2, options) {
+            if (v1 > v2) {
+                return options.fn(this);
+            }
+            return options.inverse(this);
+        });
+
+        Handlebars.registerHelper('ifLessThan', function (v1, v2, options) {
+            if (v1 < v2) {
+                return options.fn(this);
+            }
+            return options.inverse(this);
+        });
+
+    </script>
+
+
+    @RenderSection("scripts", required: false)
+    <div id="navbar" class="navbar navbar-default ace-save-state">
+        <div class="navbar-container ace-save-state" id="navbar-container">
+            <div class="navbar-header pull-left">
+                <a href="#" class="navbar-brand">
+                    <small>
+                        <img src="~/images/pucit/header_logo.png" class="logo" alt="" />
+                    </small>
+                </a>
+            </div>
+
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+
+                    @if (PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perViewLoginHistoryReport == true)
+                    {
+                        <li class="light-blue dropdown-modal">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <span class="user-info">
+                                    <small>
+                                        <b><label>Reports</label></b>
+                                    </small>
+                                </span>
+                                <i class="ace-icon fa fa-caret-down"></i>
+                            </a>
+
+                            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                @if (PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perViewLoginHistoryReport == true)
+                                {
+                                <li>
+                                    <a href='@Url.Content("~/Reports/UserLoginHistory")'>
+                                        <i class="ace-icon fa fa-user"></i>
+                                        User Login History
+                                    </a>
+                                </li>
+                                }
+                                <li class="divider"></li>
+
+                            </ul>
+                        </li>
+                    }
+                    @if (PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perManageSecurityUsers == true || PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perManageSecurityRoles == true || PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perManageSecurityPermissions == true)
+                    {
+                        <li class="light-blue dropdown-modal">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <span class="user-info">
+                                    <small>
+                                        <b><label>Security</label></b>
+                                    </small>
+                                </span>
+                                <i class="ace-icon fa fa-caret-down"></i>
+                            </a>
+
+                            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                @if (PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perManageSecurityRoles == true)
+                                {
+                                    <li>
+                                        <a href='@Url.Content("~/Security/Roles")'>
+                                            <i class="ace-icon fa fa-user"></i>
+                                            Roles
+                                        </a>
+                                    </li>
+                                }
+                                <li class="divider"></li>
+                                @if (PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perManageSecurityPermissions == true)
+                                {
+                                    <li>
+                                        <a href='@Url.Content("~/Security/Permissions")'>
+                                            <i class="ace-icon fa fa-user"></i>
+                                            Permissions
+                                        </a>
+                                    </li>
+                                }
+                                <li class="divider"></li>
+                                @if (PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perManageSecurityUsers == true)
+                                {
+                                    <li>
+                                        <a href='@Url.Content("~/Security/Users")'>
+                                            <i class="ace-icon fa fa-user"></i>
+                                            Users
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    @if (PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perCanLoginAsOtherUser == true)
+                    {
+                        <li class="light-blue dropdown-modal">
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                <span class="user-info">
+                                    <small>
+                                        <b><label>Admin</label></b>
+                                    </small>
+                                </span>
+                                <i class="ace-icon fa fa-caret-down"></i>
+                            </a>
+
+                            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                                <li class="divider"></li>
+                                @if (PUCIT.AIMRL.WebAppName.MainApp.Security.PermissionManager.perCanLoginAsOtherUser == true)
+                                {
+                                    <li>
+                                        <a href='@Url.Content("~/Admin/LoginAs")'>
+                                            <i class="ace-icon fa fa-user"></i>
+                                            Login as another User
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    <li class="light-blue dropdown-modal">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle"
+                           @if (PUCIT.AIMRL.WebAppName.UI.Common.SessionManager.LogsInAsOtherUser) {  @: style="background-color: #aee68a;"
+                                                                       }>
+                            <img class="nav-user-photo" src="~/images/avatars/web_hi_res_512.png" alt=Jason's photo" />
+                            <span class="user-info">
+                                <small>
+                                    <b><label id="username">@ViewBag.DispName</label></b>
+                                </small>
+                            </span>
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+
+                            <li>
+                                <a href="#profileModal" role="button" data-toggle="modal">
+                                    <i class="ace-icon fa fa-user"></i>
+                                    View Profile
+                                </a>
+                            </li>
+                            @if (ViewBag.IsContributor == true)
+                            {
+                                <li class="divider"></li>
+                                foreach (var obj in ViewBag.ApproverDesignations)
+                                {
+                                    <li class="designation">
+                                        @if (ViewBag.CurrentApproverID == obj.ApproverID)
+                                        {
+                                            <a href="#" aid="@obj.ApproverID" class="selected">@obj.Designation.Trim()</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#" aid="@obj.ApproverID">@obj.Designation.Trim()</a>
+                                        }
+                                    </li>
+                                }
+                            }
+                            <li class="divider"></li>
+                            <li>
+                                <a href='@Url.Action("ChangePassword", "Home")'>
+                                    <i class="ace-icon fa fa-key"></i>
+                                    Change Password
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <a href='@Url.Content("~/Login/SignOut")'>
+                                    <i class="ace-icon fa fa-power-off red"></i>
+                                    Logout @if (PUCIT.AIMRL.WebAppName.UI.Common.SessionManager.LogsInAsOtherUser == true)
+                                    {
+                                        @: from @ViewBag.Login
+                                                    }
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+            <div class="input-group col-sm-2 pull-right" role="navigation" style="margin-top:7px; margin-right:7px">
+                <input type="number" class="form-control" id="SearchDiary" placeholder="Diary No. e.g. 12" />
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-info no-border btn-sm light-blue" id="SearchButton">
+                        <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
+                    </button>
+                </div>
+            </div>
+        </div><!-- /.navbar-container -->
+    </div>
+    <div id="profileModal" class="modal in" tabindex="-1" style="display:none">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="blue bigger">My Profile</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div style="padding-left:12%">
+                            <div class="col-xs-7">
+                                <span class="blue"><label for="form-field-first"><b>Username : </b></label></span>
+                                <label for="form-field-username" id="username_profile">@ViewBag.Login</label>
+                            </div>
+                            <br /><br />
+                            <div class="col-xs-7">
+                                <span class="blue">
+                                    <label for="form-field-first"><b>Name : </b></label>
+                                </span>
+                                <label for="form-field-username" id="Full_Name">@ViewBag.FullName</label>
+                            </div>
+                            <br /><br />
+                        </div>
+                        <div style="padding-left:12%">
+                            <div class="col-xs-7">
+                                <span class="blue">
+                                    <label for="form-field-first"><b>Email : </b></label>
+                                </span>
+                                <label for="form-field-first" id="email">@ViewBag.Email</label>
+                            </div>
+                            <br /><br />
+                            <div class="col-xs-7">
+                                <span class="blue">
+                                    <label for="form-field-first"><b>Designation : </b></label>
+                                </span>
+                                <label for="form-field-first" id="designation">@ViewBag.Designation</label>
+                            </div>
+                            <br /><br />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm" data-dismiss="modal">
+                        <i class="ace-icon fa fa-times"></i>
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <div class="breadcrumb">
+            <ul class="breadcrumb">
+                <li>
+                    <a href='@Url.Content("~/Home")'>
+                        <i class="ace-icon fa fa-home home-icon">
+                        </i>
+                    </a>
+                </li>
+                @*@Html.MvcSiteMap().SiteMapPath()*@
+                @RenderSection("BreadCrumb", false)
+
+            </ul>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+    @RenderBody()
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <span class="bigger-120">
+                    <span class="blue bolder">PUCIT</span>
+                </span>
+                &nbsp; &nbsp;
+            </div>
+        </div>
+    </div>
+</body>
+</html>

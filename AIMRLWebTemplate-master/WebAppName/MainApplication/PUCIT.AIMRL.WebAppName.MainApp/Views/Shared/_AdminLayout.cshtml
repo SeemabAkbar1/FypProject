@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_HeaderLayout.cshtml";
+}
+@section Header
+{
+    @RenderSection("Header", false)
+}
+@section scripts
+{
+    @RenderSection("scripts", required: false)
+}
+
+@section BreadCrumb
+{
+    @RenderSection("BreadCrumb", required: false)
+}
+
+@RenderBody()

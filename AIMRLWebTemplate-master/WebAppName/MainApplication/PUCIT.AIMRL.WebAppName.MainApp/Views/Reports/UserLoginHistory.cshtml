@@ -1,0 +1,139 @@
+﻿@{
+    Layout = "~/Views/Shared/_HeaderLayout.cshtml";
+}
+@section Header
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/mywebapp/Reports/mywebapp.ui.reports.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/mywebapp/ApplicationView/mywebapp.ui.header.js")"></script>
+}
+@section scripts
+{
+    <script type="text/javascript">
+        try { ace.settings.loadState('main-container') } catch (e) { }
+
+        $(document).ready(function () {
+            MyWebApp.UI.Header.readyMain();
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        try { ace.settings.loadState('main-container') } catch (e) { }
+
+        $(document).ready(function () {
+            MyWebApp.UI.Reports.readyMain();
+        });
+    </script>
+}
+<div class="main-container ace-save-state" id="main-container">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a  href='@Url.Content("~/Home/")'> Home</a>
+                </li>
+
+                <li>
+                    <a href='@Url.Content("~/Reports/UserLoginHistory/")'>Reports</a>
+                </li>
+               
+               
+                    <li class="active" id="PageId" style="display:none">@ViewBag.Id</li>
+               
+               
+            </ul><!-- /.breadcrumb -->
+        </div>
+
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    Reports
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                       UserLoginHistory
+                                            </small>
+                      
+                </h1>
+            
+
+             
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- PAGE CONTENT BEGINS -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="message-list-container">
+                                <div class="message-list" id="LoginHistory">
+                                    <table id="simple-table6" class="table  table-bordered table-hover"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.row -->
+
+                    <div class="hr hr-18 dotted hr-double"></div>
+                    <div class="modal-footer no-margin-top">
+
+                        <ul class="pagination pull-right no-margin">
+                            <li class="prev disabled">
+                                <a href="#">
+                                    <i class="ace-icon fa fa-angle-double-left"></i>
+                                </a>
+                            </li>
+
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+
+                            <li>
+                                <a href="#">2</a>
+                            </li>
+
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+
+                            <li class="next">
+                                <a href="#">
+                                    <i class="ace-icon fa fa-angle-double-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+            </div><!-- PAGE CONTENT ENDS -->
+        </div><!-- main.cont -->
+  
+       
+        <script id="LoginHistoryTemplate" type="text/x-handlebars-template">
+
+            <thead>
+                <tr>
+                    <th>LoginHistoryId</th>
+                    <th>UserID</th>
+                    <th> LoginID </th>
+                    <th>MachineIP </th>
+                    <th>LoginTime</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each LoginHistoryList}}
+                <tr>
+                    <td>
+                        {{LoginHistoryID}}
+                    </td>
+                    <td>
+                        {{UserID}}
+                    </td>
+                    <td>{{LoginID}}</td>
+                    <td>{{MachineIP}}</td>
+                    <td>{{LoginTimeStr}}</td>
+                </tr>
+            </tbody>
+            {{/each}}
+
+        </script>
+

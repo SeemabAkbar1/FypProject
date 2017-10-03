@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index" key="Home">
+    <mvcSiteMapNode title="New Application" controller="Home" action="Forms"/>
+    <mvcSiteMapNode title="Inbox" controller="Home" action="Inbox" preservedRouteParameters="title">
+      <mvcSiteMapNode title="Application View" controller="Home" action="ApplicationView" preservedRouteParameters="id"/>
+        </mvcSiteMapNode>
+    <mvcSiteMapNode title="Change Password" controller="Home" action="ChangePassword"/>
+    </mvcSiteMapNode>
+
+</mvcSiteMap>

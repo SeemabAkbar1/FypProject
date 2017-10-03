@@ -1,0 +1,19 @@
+﻿.body_header{line-height:0}
+
+.logo{
+    height:auto;
+    margin:10px 0px 0px 0px;
+}
+
+.asterisk:after{
+    content:"*";
+    color:red
+}
+
+.hand{
+    cursor:pointer;
+}
+
+.defaultCursor{
+    cursor:default;
+}

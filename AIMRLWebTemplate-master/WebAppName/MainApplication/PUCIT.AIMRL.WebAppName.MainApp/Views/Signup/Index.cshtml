@@ -1,0 +1,123 @@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+@section Header
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/mywebapp/user/mywebapp.ui.signup.js")"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(function () {
+            MyWebApp.Debugger.log('Home:pageLoad');
+            MyWebApp.UI.SignUps.initialisePage();
+        });
+    </script>
+}
+<div>
+    <div class="mainHeader" style="margin-left: 30; margin-top: 20">
+        &nbsp;My Web App</div>
+    <form method="post" action="" id="signupform">
+    <div class="container_12">
+        <div style="width: 960px; position: relative">
+            <!-- Pushes main header down -->
+            <div style="height: 100px">
+            </div>
+            <!-- Vertical space for logon panel -->
+            <div class="grid_3">
+            </div>
+            <div id="myDetailsContentPanel-1" style="margin-top: -10px">
+                <input type="hidden" id="hdnUserID" value="" />
+                <div id="myCreateUserPanel">
+                    <table class="padded-table">
+                        <tr>
+                            <td colspan="3">
+                                <h2>
+                                    User Registeration</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Username:
+                            </td>
+                            <td>
+                                <input type="text" id="UsernameTextBox" class="ui-state-default ui-corner-all" style="width: 200px;" />
+                            </td>
+                            <td>
+                                <span id="spusernamestatus" style="display: inline-block;"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Name:
+                            </td>
+                            <td>
+                                <input type="text" id="firstnameTextBox" class="ui-state-default ui-corner-all" style="width: 200px;"
+                                    data-val="true" data-val-required="The FirstName field is required." />
+                                <span class="field-validation-valid" data-valmsg-for="firstnameTextBox" data-valmsg-replace="true">
+                                </span>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email Address:
+                            </td>
+                            <td>
+                                <input type="text" id="emailAddressTextBox" class="ui-state-default ui-corner-all"
+                                    style="width: 200px;" />
+                            </td>
+                            <td>
+                                <span id="spemailstatus" style="display: inline-block;"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Password:
+                            </td>
+                            <td>
+                                <input type="password" id="PasswordTextBox" class="ui-state-default ui-corner-all"
+                                    style="width: 200px;" />
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Confirm Password:
+                            </td>
+                            <td>
+                                <input type="password" id="ConfirmPasswordTextBox" class="ui-state-default ui-corner-all"
+                                    style="width: 200px;" />
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <p style="text-align: center">
+                                    <a href="#" id="logonCommandButton" class="ui-state-default ui-corner-all ">Create Account</a></p>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center">
+                                <span id="spresultstatus" style="display: inline-block;"></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="height: 15px">
+                    </div>
+                </div>
+                <div style="height: 10px">
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>

@@ -1,0 +1,143 @@
+﻿
+.popup-box ul {list-style:none; margin:0; padding:0;
+              }
+.popup-box ul li{color:#000;list-style:none; margin:0; padding:0 0 10px;/* border-top:1px solid #999;*/ line-height:18px;}
+.popup-box ul li b{display:block; width:320px; float:left;}
+
+.popup-box span{/*display:block; width:200px; float:right; text-align:right;*/}
+
+    
+.clear{clear:both;}
+.popup-box
+{    
+    /*background: #fff;*/
+    color: #000000;    
+    position: fixed;
+    top:40px;
+    display: none;
+    z-index: 800 !important;
+    /*border:1px solid #000;*/
+    width:500px;
+    left:50% !important;
+    margin-left:-250px;
+    z-index:800 !important;
+    /*padding:20px;*/
+}
+
+.small.popup-box
+{    
+    /*background: #fff;*/
+    
+    /*border:1px solid #000;*/
+    width:386px;
+    margin-left:-193px;
+
+    /*padding:20px;*/
+}
+
+.popup-box 
+{
+    width: 390px; margin-left: -195px; left: 50% !important;}
+.popup-box .popHead { background-color:#96df73;-webkit-border-radius: 6px 6px 0px 0px;border-radius: 6px 6px 0px 0px;padding:5px;}
+.popup-box .popContent { background-color: #fff;-webkit-border-radius:0px 0px 6px 6px;border-radius:0px 0px 6px 6px;padding:20px;}
+.popup-box .popContent ul { overflow:hidden;}
+.popup-box .popContent ul li { margin-right:10px; margin-bottom: 10px;display: block; clear: both; padding-bottom: 0; }
+.popup-box .popContent ul li span, .popup-box .popContent ul li input[type=text]  { display: inline-block;  margin-bottom: 0px;  }
+.popup-box .popContent ul li input.schDate[type=text] {background:#fff url(../images/icon-calendertxtField.png) no-repeat 5px center !important;padding-left:20px !important;z-index:99999999;}
+.popup-box .popContent ul li input.schDateStart[type=text], .popup-box .popContent ul li input.schDateEnd[type=text] {width: 75px; background:#fff url(../images/icon-clocktxtField.png) no-repeat 5px center !important;padding-left:20px !important;}
+.popup-box .popContent .customselect { width: 240px; }
+.popup-box .popContent ul li span {margin:5px 5px 0px 0px; width:90px;}
+.popup-box .popContent ul li span.sec{ margin-left: 9px; width: 7px; }
+.popup-box .popContent ul li span.section{ margin-left: 0px; width: 7px; }
+.popup-box .popContent .successInfo {
+  padding: 7px 35px 5px 30px;
+  color: #3A6028;
+  background-color: #96df73;
+  border: 1px solid #82b968;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-image: url("../images/ico-succses-noti.gif");
+  background-repeat:no-repeat;
+  background-position:10px center;
+  margin-bottom:10px;
+}
+
+.popup-box .popContent .errorInfo
+{
+    padding: 7px 35px 5px 30px;
+background-color: #ef403d;
+  border: 1px solid #b32b29;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-image: url("../images/ico-error-noti.gif");
+  background-repeat:no-repeat;
+  background-position:10px center;
+  margin-bottom:10px;
+  color:#333333;
+}
+
+.popup-box .popHead h2 {color: #FFFFFF;font-size: 13px;margin-bottom: 0;padding-left: 10px;padding-top: 3px;}
+.popup-box .popHead h2.schedule {background: url(../images/icon-addscheduleclock.png) no-repeat 10px center !important;padding-left: 35px;}
+.popup-box .headWarning {overflow:hidden;padding:5px;background: #ff0000;}
+#popupInfo { background-color: #fdf8e4; padding: 5px 10px; margin-bottom: 10px; }
+.popup-box .head h2 
+{ 
+   width: 80%;   
+   margin-bottom:0;  
+   color:#000;
+   font-size:16px;
+   float:none;
+}
+#btnExportSchedule { margin-left: 4px; }
+.popup-box .head .Cancel
+{    
+float: right;
+padding: 2px 7px 3px 7px;
+border: none;
+position: absolute;
+top: 10px;
+right: 10px;
+}
+
+.popup-box .msg
+{    
+padding:0 0 10px;
+/*margin-bottom:10px;*/
+}
+.popup-box .Btns
+{    
+padding:10px 0 0;
+margin-bottom:0;
+}
+.modaloverlay
+{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+     z-index:700 !important;
+     .z-index:8000000 !important;
+    background-color: #000;
+    opacity: .50;
+    filter: alpha(opacity=50);
+    -moz-opacity: .15;
+}
+
+
+
+h1
+{
+    margin-top: 0px;
+}
+a.closepop
+{
+    color: #fff;
+    font-weight: bold;
+}
+

@@ -1,0 +1,248 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section Header
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/mywebapp/Security/mywebapp.ui.roles.js")"> </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/mywebapp/ApplicationView/mywebapp.ui.header.js")"></script>
+}
+@section scripts
+{
+    <script type="text/javascript">
+        try { ace.settings.loadState('main-container') } catch (e) { }
+
+        $(document).ready(function () {
+            MyWebApp.UI.Header.readyMain();
+        });
+    </script>
+    <script type="text/javascript">
+
+        try { ace.settings.loadState('main-container') } catch (e) { }
+
+        $(document).ready(function () {
+            MyWebApp.UI.Role.readyMain();
+        });
+    </script>
+}
+<div class="main-container ace-save-state" id="main-container">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href='@Url.Content("~/Home/")'> Home</a>
+                </li>
+                <li>
+                    <a href='@Url.Content("~/Security/Roles/")'>Roles</a>
+                </li>
+            </ul><!-- /.breadcrumb -->
+        </div>
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    Roles
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        ViewRoles
+                    </small>
+                    <select style="display:inline ; font-size:small" id="selectType1">
+                        <option value="-1">All</option>
+                        <option value="1">Active</option>
+                        <option value="0">InActive</option>
+                    </select>
+                    <a role="button" class="btn-new-mail pull-right" data-toggle="modal" id="newrole">
+                        <span class="btn btn-purple no-border">
+                            <i class="menu-icon fa fa-pencil-square-o"></i>
+                            <span class="bigger-110">Add new Roles</span>
+                        </span>
+                    </a>
+                </h1>
+            </div><!-- /.page-header -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- PAGE CONTENT BEGINS -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="message-list-container">
+                                <div class="message-list" id="Roles">
+                                    <table id="simple-table" class="table  table-bordered table-hover"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.row -->
+                    <div class="hr hr-18 dotted hr-double"></div>
+                    <div class="modal-footer no-margin-top">
+                        <ul class="pagination pull-right no-margin">
+                            <li class="prev disabled">
+                                <a href="#">
+                                    <i class="ace-icon fa fa-angle-double-left"></i>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li>
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li class="next">
+                                <a href="#">
+                                    <i class="ace-icon fa fa-angle-double-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+
+            </div><!-- PAGE CONTENT ENDS -->
+        </div>
+    </div>
+</div><!-- main.cont -->
+
+<div id="modal-form" class=" in" tabindex="-1" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="ModalClose" class="close" data-dismiss="modal">×</button>
+                <h4 class="blue bigger">Role information</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div style="padding-left:50px;">
+                        <input type="hidden" name="hiddenid" id="hiddenid" />
+                        <div class="col-xs-5">
+                            <label class="asterisk" for="form-field-first"><b>Name : </b></label>
+                            <input type="text" class="input-sm form-control" id="rolename" />
+                        </div>
+                    </div>
+                    <div style="padding-left:50px;">
+                        <div class="col-xs-5">
+                            <label class="asterisk" for="form-field-first"><b>Description : </b></label>
+                            <input type="text" class="input-sm form-control" id="roledescription" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm" data-dismiss="modal" id="Cancel">
+                    <i class="ace-icon fa fa-times"></i>
+                    Cancel
+                </button>
+                <button class="btn btn-sm btn-primary" id="Save">
+                    <i class="ace-icon fa fa-check"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="EditPermissionsModal" class="modal in" tabindex="-1" style="display: none; width:45%;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="primary bigger">
+                    Permissions Assignment
+                    <button type="button" id="closeedit" class="close" data-dismiss="modal">×</button>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-11">
+                        <div class="space-4"></div>
+                        <div class="row">
+                            <div id="draggable" style="max-height:250px;overflow-y:auto">
+                                <ol id="sortable1" style="list-style-type:none"></ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm" data-dismiss="modal" id="CancelPermModal">
+                    <i class="ace-icon fa fa-times"></i>
+                    Cancel
+                </button>
+                <button class="btn btn-sm btn-primary" id="SaveMappings">
+                    <i class="ace-icon fa fa-check"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    Html.RenderAction("YesNoModal", "Partial");
+}
+<script id="RoleTemplate" type="text/x-handlebars-template">
+    <thead>
+        <tr id="#">
+            <th>Name</th>
+            <th>Description</th>
+            <th scope="col" width="5%">Edit</th>
+            <th scope="col" width="5%">Enable/Disable</th>
+            <th scope="col" width="5%">Manage Permissions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each RoleList}}
+        <tr id="{{Id}}">
+            <td>
+                <a href="#">{{Name}}</a>
+            </td>
+            <td>{{Description}}</td>
+            <td align="center" align="middle">
+                <div class="tblActions">
+                    <a role="button" data-toggle="modal" class="edit btn-xs btn-new-mail  btn btn-purple no-border lnkEdit" title="Click to edit">
+                        <i class="menu-icon fa fa-pencil-square-o"></i>
+                        <span class="bigger-110"></span>
+                    </a>
+                </div>
+            </td>
+            <td align="center" align="middle">
+                <div class="tblActions">
+                    {{#ifEqual IsActive false}}
+                    <a href="#" class="btn btn-xs btn-round widget-color-green lnkDelete" title="Click to activate">
+                        <i class="ace-icon icon-off"></i>
+                    </a>
+                    {{/ifEqual}}
+                    {{#ifEqual IsActive true}}
+                    <a href="#" class='delete btn btn-xs btn-danger btn-round lnkDelete' title="Click to deactivate">
+                        <i class="ace-icon icon-off"></i>
+                    </a>
+                    {{/ifEqual }}
+                </div>
+            </td>
+            <td align="center" align="middle">
+                <div class="tblActions">
+                    {{#ifEqual IsActive true }}
+                    <a role="button" data-toggle="modal" class="edit btn-xs btn-new-mail  btn btn-purple no-border lnkEditMapping" title="Click to edit" id="editMapping">
+                        <i class="menu-icon fa fa-pencil-square-o "></i>
+                        <span class="bigger-110"></span>
+                    </a>
+                    {{/ifEqual }}
+                    {{#ifEqual IsActive false }}
+                    <a href="#" class="btn btn-xs btn-round">
+                        <i class="ace-icon icon-lock"></i>
+                    </a>
+                    {{/ifEqual }}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    {{/each}}
+
+</script>
+
+<script id="PermissionTemplate" type="text/x-handlebars-template">
+    {{#each PermissionList}}
+    <li class="dd-handle nondrag" id="{{Id}}">
+        <input type="checkbox">
+        {{Name}}
+    </li>
+    {{/each}}
+</script>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUCIT.AIMRL.Common.Logger", "PUCIT.AIMRL.Common.Logger.csproj", "{8C5205F7-65EE-43C7-A99A-9D09C70FB080}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		QA|Any CPU = QA|Any CPU
+		Release|Any CPU = Release|Any CPU
+		UAT|Any CPU = UAT|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C5205F7-65EE-43C7-A99A-9D09C70FB080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5205F7-65EE-43C7-A99A-9D09C70FB080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5205F7-65EE-43C7-A99A-9D09C70FB080}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{8C5205F7-65EE-43C7-A99A-9D09C70FB080}.QA|Any CPU.Build.0 = QA|Any CPU
+		{8C5205F7-65EE-43C7-A99A-9D09C70FB080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5205F7-65EE-43C7-A99A-9D09C70FB080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C5205F7-65EE-43C7-A99A-9D09C70FB080}.UAT|Any CPU.ActiveCfg = UAT|Any CPU
+		{8C5205F7-65EE-43C7-A99A-9D09C70FB080}.UAT|Any CPU.Build.0 = UAT|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

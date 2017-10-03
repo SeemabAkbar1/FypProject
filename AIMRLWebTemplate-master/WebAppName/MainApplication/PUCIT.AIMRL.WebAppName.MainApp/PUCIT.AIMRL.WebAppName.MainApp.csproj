@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{72E7280A-1983-4B83-8ED7-23391137A742}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PUCIT.AIMRL.WebAppName.MainApp</RootNamespace>
+    <AssemblyName>PUCIT.AIMRL.WebAppName.MainApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Antlr3.Runtime.3.5.0.3-alpha002\lib\net20\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\log4net.2.0.5\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider, Version=4.6.22.0, Culture=neutral, PublicKeyToken=1923abe4657913cc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvcSiteMapProvider.MVC4.Core.4.6.22\lib\net40\MvcSiteMapProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider.WebActivator, Version=4.6.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvcSiteMapProvider.MVC4.4.6.22\lib\net40\MvcSiteMapProvider.WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIControllers\AdminController.cs" />
+    <Compile Include="APIControllers\BaseDataController.cs" />
+    <Compile Include="APIControllers\ReportsController.cs" />
+    <Compile Include="APIControllers\SecurityController.cs" />
+    <Compile Include="APIControllers\DashboardController.cs" />
+    <Compile Include="APIControllers\UserInfoDataController.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IItemTransform.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminRepository.cs" />
+    <Compile Include="Models\ReportsRepository.cs" />
+    <Compile Include="Models\DashboardRepository.cs" />
+    <Compile Include="Models\Samples\SamplesRepository.cs" />
+    <Compile Include="Models\SecurityRepository.cs" />
+    <Compile Include="Models\UserInfoRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\AuthorizedForWebAPI.cs" />
+    <Compile Include="Security\HttpFilters\CustomExceptionFilterAttribute.cs" />
+    <Compile Include="Security\HttpFilters\TrackingActionFilter.cs" />
+    <Compile Include="Security\PermissionManager.cs" />
+    <Compile Include="Utils\BaseController.cs" />
+    <Compile Include="Utils\ExtensionMethods.cs" />
+    <Compile Include="Utils\Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\font-awesome\4.5.0\css\font-awesome.min.css" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\swf\flashExport.swf" />
+    <Content Include="Content\ace-ie.min.css" />
+    <Content Include="Content\ace-part2.min.css" />
+    <Content Include="Content\ace-rtl.min.css" />
+    <Content Include="Content\ace-skins.min.css" />
+    <Content Include="Content\ace.min.css" />
+    <Content Include="Content\autoComplete\autocomplete.css" />
+    <Content Include="Content\autoComplete\autocomplete.jquery.ui.override.css" />
+    <Content Include="Content\autoComplete\images\close_icon.gif" />
+    <Content Include="Content\bootstrap-duallistbox.min.css" />
+    <Content Include="Content\bootstrap-multiselect.min.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bsmodal\jquery.bsmodal.css" />
+    <Content Include="Content\daterangepicker.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts.googleapis.com.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\NotificationMenu\style_light.css" />
+    <Content Include="Content\select2.min.css" />
+    <Content Include="Content\Slider\Slider.css" />
+    <Content Include="Content\Slider\Sliderstyle.css" />
+    <Content Include="Content\style\admin.css" />
+    <Content Include="Content\style\bootstrap-timepicker.css" />
+    <Content Include="Content\style\contextmenu\jquery.contextMenu.css" />
+    <Content Include="Content\style\contextmenu\prettify.css" />
+    <Content Include="Content\style\contextmenu\screen.css" />
+    <Content Include="Content\style\default.css" />
+    <Content Include="Content\style\FineUploader\fineuploader.css" />
+    <Content Include="Content\style\FineUploader\loading.gif" />
+    <Content Include="Content\style\FineUploader\processing.gif" />
+    <Content Include="Content\style\fonts\DroidSans-Bold-webfont.svg" />
+    <Content Include="Content\style\fonts\DroidSans-webfont.svg" />
+    <Content Include="Content\style\FullCalenderScheduler\fullcalendar.css" />
+    <Content Include="Content\style\FullCalenderScheduler\fullcalendar.print.css" />
+    <Content Include="Content\style\gs-24col.css" />
+    <Content Include="Content\style\jqplot\examples.css" />
+    <Content Include="Content\style\jqplot\examples.min.css" />
+    <Content Include="Content\style\jqplot\jquery.jqplot.min.css" />
+    <Content Include="Content\style\jqplot\shCoreDefault.css" />
+    <Content Include="Content\style\jqplot\shCoreDefault.min.css" />
+    <Content Include="Content\style\jqplot\shThemejqPlot.css" />
+    <Content Include="Content\style\jqplot\shThemejqPlot.min.css" />
+    <Content Include="Content\style\jquery tabs\style.css" />
+    <Content Include="Content\style\jquery-ui-timepicker-addon.css" />
+    <Content Include="Content\style\jquery.ui.all.css" />
+    <Content Include="Content\style\media-queries.css" />
+    <Content Include="Content\style\paginator.css" />
+    <Content Include="Content\style\PineNotifications\bootstrap.css" />
+    <Content Include="Content\style\PineNotifications\icons\glyphicons-halflings - Copy.png" />
+    <Content Include="Content\style\PineNotifications\icons\glyphicons-halflings.png" />
+    <Content Include="Content\style\PineNotifications\icons\jquery.pnotify.default.icons.css" />
+    <Content Include="Content\style\PineNotifications\jquery.pnotify.default.css" />
+    <Content Include="Content\style\PineNotifications\jquery.pnotify.default.icons.css" />
+    <Content Include="Content\style\reset.css" />
+    <Content Include="Content\style\toggleswitch\toggleswitch.css" />
+    <Content Include="Content\style\ui.spinner.css" />
+    <Content Include="Content\style_custom.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\tooltipster\tooltipster.css" />
+    <Content Include="EmailTemplates\Alerts.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\ajax_loader_blue_512.gif" />
+    <Content Include="images\avatars\avatar.png" />
+    <Content Include="images\avatars\avatar1.png" />
+    <Content Include="images\avatars\avatar2.png" />
+    <Content Include="images\avatars\avatar3.png" />
+    <Content Include="images\avatars\avatar4.png" />
+    <Content Include="images\avatars\avatar5.png" />
+    <Content Include="images\avatars\favicon.ico" />
+    <Content Include="images\avatars\profile-pic.jpg" />
+    <Content Include="images\avatars\user.png" />
+    <Content Include="images\avatars\web_hi_res_512.png" />
+    <Content Include="images\email\email1.png" />
+    <Content Include="images\email\email2.png" />
+    <Content Include="images\email\email3.png" />
+    <Content Include="images\email\email4.png" />
+    <Content Include="images\gallery\thumb-1.jpg" />
+    <Content Include="images\gallery\thumb-2.jpg" />
+    <Content Include="images\gallery\thumb-3.jpg" />
+    <Content Include="images\gallery\thumb-4.jpg" />
+    <Content Include="images\gallery\thumb-5.jpg" />
+    <Content Include="images\gallery\thumb-6.jpg" />
+    <Content Include="images\placeholder\165x90.png" />
+    <Content Include="images\placeholder\255x150.png" />
+    <Content Include="images\placeholder\530x270.png" />
+    <Content Include="images\placeholder\550x280.png" />
+    <Content Include="images\pucit\header_logo.png" />
+    <Content Include="images\pucit\PUCIT_Logo.png" />
+    <Content Include="images\pucit\sign.png" />
+    <Content Include="logging.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\ace-elements.min.js" />
+    <Content Include="Scripts\ace-extra.min.js" />
+    <Content Include="Scripts\ace.min.js" />
+    <Content Include="Scripts\bootstrap-tag.min.js" />
+    <Content Include="Scripts\bootstrap-wysiwyg.min.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\buttons.colVis.min.js" />
+    <Content Include="Scripts\buttons.flash.min.js" />
+    <Content Include="Scripts\buttons.html5.min.js" />
+    <Content Include="Scripts\buttons.print.min.js" />
+    <Content Include="Scripts\common\GlobalFunctions.js" />
+    <Content Include="Scripts\common\jquery-ui-timepicker-addon.js" />
+    <Content Include="Scripts\common\json2.js" />
+    <Content Include="Scripts\common\paginator.js" />
+    <Content Include="Scripts\common\utilities.js" />
+    <Content Include="Scripts\dataTables.buttons.min.js" />
+    <Content Include="Scripts\dataTables.select.min.js" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\date_time.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\highcharts\highcharts.js" />
+    <Content Include="Scripts\html5shiv.min.js" />
+    <Content Include="Scripts\jquery-1.11.3.min.js" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Mvc.sitemap" />
+    <None Include="MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\Deployment.pubxml" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.hotkeys.index.min.js" />
+    <Content Include="Scripts\jquery.mobile.custom.min.js" />
+    <Content Include="Scripts\jquery.ui.touch-punch.min.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\mywebapp\Admin\mywebapp.ui.LoginAsOtherUsers.js" />
+    <Content Include="Scripts\mywebapp\Reports\mywebapp.ui.reports.js" />
+    <Content Include="Scripts\mywebapp\ApplicationView\mywebapp.ui.header.js" />
+    <Content Include="Scripts\mywebapp\ChangePassword\mywebapp.ui.ResetPassword1.js" />
+    <Content Include="Scripts\mywebapp\ChangePassword\mywebapp.ui.ChangePassword.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.debugger.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.globals.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.resources.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.ui.common.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.ui.datamanager.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.ui.enums.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.ui.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.ui.main.js" />
+    <Content Include="Scripts\mywebapp\core\mywebapp.ui.timepickercommon.js" />
+    <Content Include="Scripts\mywebapp\Dashboard\mywebapp.ui.dashboard.js" />
+    <Content Include="Scripts\mywebapp\samples\mywebapp.ui.samplestudent.js" />
+    <Content Include="Scripts\mywebapp\Security\mywebapp.ui.users.js" />
+    <Content Include="Scripts\mywebapp\Security\mywebapp.ui.roles.js" />
+    <Content Include="Scripts\mywebapp\Security\mywebapp.ui.permissions.js" />
+    <Content Include="Scripts\mywebapp\user\mywebapp.ui.logon.js" />
+    <Content Include="Scripts\mywebapp\user\mywebapp.ui.signup.js" />
+    <Content Include="Scripts\jquery-plugins\Accordian\jquery.nestedAccordion.js" />
+    <Content Include="Scripts\jquery-plugins\AutoComplete\jquery.ui.autocomplete.js" />
+    <Content Include="Scripts\jquery-plugins\AutoComplete\jquery.ui.autocomplete.wrapper.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-apollo.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-clj.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-css.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-go.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-hs.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-lisp.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-lua.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-ml.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-n.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-proto.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-scala.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-sql.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-tex.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-vb.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-vhdl.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-wiki.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-xq.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\lang-yaml.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\prettify.css" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\prettify.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\prettify\prettify.sunburst.css" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\screen.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\images\cut.png" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\images\door.png" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\images\page_white_add.png" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\images\page_white_copy.png" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\images\page_white_delete.png" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\images\page_white_edit.png" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\images\page_white_paste.png" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\jquery.contextMenu.css" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\jquery.contextMenu.js" />
+    <Content Include="Scripts\jquery-plugins\Contextmenu\src\jquery.ui.position.js" />
+    <Content Include="Scripts\jquery-plugins\DataTables\Dashboard\jquery.dashboard.js" />
+    <Content Include="Scripts\jquery-plugins\DataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery-plugins\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery-plugins\DataTables\media\css\TableTools.css" />
+    <Content Include="Scripts\jquery-plugins\DataTables\media\swf\copy_csv_xls.swf" />
+    <Content Include="Scripts\jquery-plugins\DataTables\media\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Scripts\jquery-plugins\DataTables\TableTools.js" />
+    <Content Include="Scripts\jquery-plugins\DataTables\TableTools.min.js" />
+    <Content Include="Scripts\jquery-plugins\DataTables\ZeroClipboard.js" />
+    <Content Include="Scripts\jquery-plugins\date.js" />
+    <Content Include="Scripts\jquery-plugins\DateRangePicker\daterangepicker.css" />
+    <Content Include="Scripts\jquery-plugins\DateRangePicker\daterangepicker.js" />
+    <Content Include="Scripts\jquery-plugins\DateRangePicker\moment.js" />
+    <Content Include="Scripts\jquery-plugins\DateRangePicker\moment.min.js" />
+    <Content Include="Scripts\jquery-plugins\FineUploader\fineuploader.js" />
+    <Content Include="Scripts\jquery-plugins\FullCalenderScheduler\fullcalendar.js" />
+    <Content Include="Scripts\jquery-plugins\FullCalenderScheduler\fullcalendar.min.js" />
+    <Content Include="Scripts\jquery-plugins\hicharts\draggable-points.js" />
+    <Content Include="Scripts\jquery-plugins\hicharts\exporting.js" />
+    <Content Include="Scripts\jquery-plugins\hicharts\exporting.src.js" />
+    <Content Include="Scripts\jquery-plugins\hicharts\highcharts-more.js" />
+    <Content Include="Scripts\jquery-plugins\hicharts\highcharts.js" />
+    <Content Include="Scripts\jquery-plugins\hicharts\highcharts.src.js" />
+    <Content Include="Scripts\jquery-plugins\jCrumb\jquery.jcrumb.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\jquery-ui-1.8.18.custom.min.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\jquery.jqGrid.src.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\plugins\grid.addons.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\plugins\grid.postext.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\plugins\grid.setcolumns.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\plugins\jquery.contextmenu.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\plugins\jquery.searchFilter.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\plugins\jquery.tablednd.js" />
+    <Content Include="Scripts\jquery-plugins\jQGrid\plugins\ui.multiselect.js" />
+    <Content Include="Scripts\jquery-plugins\jquery.cookie.js" />
+    <Content Include="Scripts\jquery-plugins\jquery.tmpl.js" />
+    <Content Include="Scripts\jquery-plugins\jquery.tooltip.js" />
+    <Content Include="Content\style\fonts\DroidSans-Bold-webfont.eot" />
+    <Content Include="Content\style\fonts\DroidSans-Bold-webfont.ttf" />
+    <Content Include="Content\style\fonts\DroidSans-Bold-webfont.woff" />
+    <Content Include="Content\style\fonts\DroidSans-webfont.eot" />
+    <Content Include="Content\style\fonts\DroidSans-webfont.ttf" />
+    <Content Include="Content\style\fonts\DroidSans-webfont.woff" />
+    <Content Include="Scripts\jquery-plugins\jQuerySession\jquery.session.js" />
+    <Content Include="Scripts\jquery-plugins\jsTree\jquery.jstree.js" />
+    <Content Include="Scripts\jquery-plugins\jsTree\jstree.js" />
+    <Content Include="Scripts\jquery-plugins\LiveQuery\jquery.livequery.js" />
+    <Content Include="Scripts\jquery-plugins\ModalPopup\jquery.bsmodal.js" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\assets\ba.hashchange.js" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\assets\prettify.css" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\assets\prettify.js" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\assets\style.css" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\jquery.multiselect.css" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\jquery.multiselect.filter.css" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\jquery.multiselect.filter.js" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\jquery.multiselect.filter.min.js" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\jquery.multiselect.js" />
+    <Content Include="Scripts\jquery-plugins\MultiSelect\jquery.multiselect.min.js" />
+    <Content Include="Scripts\jquery-plugins\NotificationMenu\ttw-notification-menu.js" />
+    <Content Include="Scripts\jquery-plugins\PineNotification\jquery.pnotify.js" />
+    <Content Include="Scripts\jquery-plugins\PineNotification\jquery.pnotify.min.js" />
+    <Content Include="Scripts\jquery-plugins\Slider\jQuery-1.10.2.js" />
+    <Content Include="Scripts\jquery-plugins\Slider\jQuery-Ui.js" />
+    <Content Include="Scripts\jquery-plugins\stopwatch\jquery.stopwatch.js" />
+    <Content Include="Scripts\jquery-plugins\style-select.js" />
+    <Content Include="Scripts\jquery-plugins\tablesorter\jquery.filtertable.js" />
+    <Content Include="Scripts\jquery-plugins\tablesorter\jquery.filtertable.min.js" />
+    <Content Include="Scripts\jquery-plugins\tablesorter\jquery.metadata.js" />
+    <Content Include="Scripts\jquery-plugins\tablesorter\jquery.tablesorter.js" />
+    <Content Include="Scripts\jquery-plugins\tablesorter\jquery.tablesorter.min.js" />
+    <Content Include="Scripts\jquery-plugins\tablesorter\jquery.tablesorter.staticrow.js" />
+    <Content Include="Scripts\jquery-plugins\tablesorter\jquery.tablesorter.staticrow.min.js" />
+    <Content Include="Scripts\jquery-plugins\Template\handlebars.js" />
+    <Content Include="Scripts\jquery-plugins\Timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="Scripts\jquery-plugins\TinyCarousel\jquery.tinycarousel.js" />
+    <Content Include="Scripts\jquery-plugins\TinyCarousel\jquery.tinycarousel.min.js" />
+    <Content Include="Scripts\jquery-plugins\TinyCarousel\tinycarousel.css" />
+    <Content Include="Scripts\jquery-plugins\ToolBar\main.js" />
+    <Content Include="Scripts\jquery-plugins\ToolBar\navDock_1.2.js" />
+    <Content Include="Scripts\jquery-plugins\ToolBar\navDock_1.2.min.js" />
+    <Content Include="Scripts\jquery-plugins\tooltipster\jquery.tooltipster.js" />
+    <Content Include="Scripts\jquery-plugins\tooltipster\jquery.tooltipster.min.js" />
+    <Content Include="Scripts\jquery-plugins\Watermark\jquery.watermark.js" />
+    <Content Include="Scripts\jquery-plugins\Watermark\jquery.watermark.min.js" />
+    <Content Include="Scripts\jqueryui\jquery-ui-1.8.23.js" />
+    <Content Include="Scripts\jqueryui\jquery-ui-1.8.4.js" />
+    <Content Include="Scripts\jqueryui\jquery-ui.js" />
+    <Content Include="Scripts\jqueryui\jquery-ui.min.js" />
+    <None Include="Scripts\jquery\jquery-1.8.0-vsdoc.js" />
+    <Content Include="Scripts\jquery\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery\jquery.tools.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\spinner\jquery.spin.js" />
+    <Content Include="Scripts\spinner\spin.js" />
+    <Content Include="Scripts\spinner\spin.min.js" />
+    <Content Include="Scripts\spinner\ui.spinner.js" />
+    <Content Include="Scripts\spinner\ui.spinner.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Signup\Index.cshtml" />
+    <Content Include="Views\Shared\_PublicLayout.cshtml" />
+    <Content Include="Views\Login\login.cshtml" />
+    <Content Include="Views\Shared\_HeaderLayout.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\ViewUsers.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Login\ResetPassword1.cshtml" />
+    <Content Include="Views\Security\Users.cshtml" />
+    <Content Include="Views\Admin\UsersOperations.cshtml" />
+    <Content Include="Views\Security\Permissions.cshtml" />
+    <Content Include="Views\Security\Roles.cshtml" />
+    <Content Include="Views\Admin\ApplicationWorkFlow.cshtml" />
+    <Content Include="Views\Admin\Search.cshtml" />
+    <Content Include="Views\Admin\LoginAsAnotherUser.cshtml" />
+    <Content Include="Views\Reports\UserLoginHistory.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Partial\YesNoModal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\bsmodal\images\" />
+    <Folder Include="Content\style\tablesorter\" />
+    <Folder Include="Scripts\jquery-plugins\Timepicker\css\" />
+    <Folder Include="Scripts\jquery-plugins\ToolTip\" />
+    <Folder Include="TempFiles\" />
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\PUCIT.AIMRL.Common.Logger\PUCIT.AIMRL.Common.Logger.csproj">
+      <Project>{8c5205f7-65ee-43c7-a99a-9d09c70fb080}</Project>
+      <Name>PUCIT.AIMRL.Common.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\PUCIT.AIMRL.Common\PUCIT.AIMRL.Common.csproj">
+      <Project>{70f7021a-a698-4489-a279-822d0efcbdcb}</Project>
+      <Name>PUCIT.AIMRL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\PUCIT.AIMRL.WebAppName.UI.Common\PUCIT.AIMRL.WebAppName.UI.Common.csproj">
+      <Project>{a46498ae-503c-4e55-8403-2160556b688b}</Project>
+      <Name>PUCIT.AIMRL.WebAppName.UI.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataFramework\PUCIT.AIMRL.WebAppName.DAL\PUCIT.AIMRL.WebAppName.DAL.csproj">
+      <Project>{077316f1-74bd-4e30-b93e-5b0079adea29}</Project>
+      <Name>PUCIT.AIMRL.WebAppName.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataFramework\PUCIT.AIMRL.WebAppName.Entities\PUCIT.AIMRL.WebAppName.Entities.csproj">
+      <Project>{1263615f-7040-416f-96a3-631e2898dae7}</Project>
+      <Name>PUCIT.AIMRL.WebAppName.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12141</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12141/PRMDev</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

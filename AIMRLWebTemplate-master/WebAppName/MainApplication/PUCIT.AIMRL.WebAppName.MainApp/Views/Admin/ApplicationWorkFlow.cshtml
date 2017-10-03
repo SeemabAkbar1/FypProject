@@ -1,0 +1,198 @@
+﻿@model PUCIT.AIMRL.WebAppName.Entities.DBEntities.Approvers
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HeaderLayout.cshtml";
+}
+@*http://localhost:12141/PRMDev/Admin/Index*@
+@section Header
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/mywebapp/Admin/mywebapp.ui.applicationworkflow.js")"></script>
+}
+@section scripts
+{
+    <script type="text/javascript">
+
+        try { ace.settings.loadState('main-container') } catch (e) { }
+
+        $(document).ready(function () {
+            MyWebApp.UI.ApplicationWorkflow.readyMain();
+        });
+    </script>
+}
+<div class="main-container ace-save-state" id="main-container">
+    <div class="main-content-inner">
+        <div id="DesignationModals" class="modal in" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="primary bigger">Add Contributor</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-11">
+                                <div class="space-4">
+                                </div>
+                                <div class="row">
+
+                                    <label class="asterisk" for="form-field-first"><b>Add Contributors : </b></label>
+                                    <ol id="sortable" style="list-style-type:none"></ol>
+                                    <script id="changeContributors1" type="text/x-handlebars-template">
+                                        <select class="col-xs-9 col-sm-8" id="Add_Contributor" name="Add_Contributor" autofocus>
+                                            {{#each ContributorsList}}
+                                            <option id="ApproverID" value="{{ApproverID}}">{{Designation}}</option>
+                                            {{/each}}
+                                        </select>&nbsp;&nbsp;&nbsp;
+                                        <input text="For New Campus" type="checkbox" name="ForNewCampus" id="ForNewCampus">For New Campus</input>
+
+                                    </script>
+
+                                    @*<ul>
+                                            <li id="draggable22" class="ui-state-highlight">Drag me down</li>
+                                        </ul>
+
+                                        <ul id="sortable22">
+                                            <li class="ui-state-default">Item 1</li>
+                                            <li class="ui-state-default">Item 2</li>
+                                            <li class="ui-state-default">Item 3</li>
+                                            <li class="ui-state-default">Item 4</li>
+                                            <li class="ui-state-default">Item 5</li>
+                                        </ul>*@
+
+                                    </br></br><label class="asterisk" for="form-field-first"><b> Existing Contributors: </b></label>
+                                    <div id="draggable" style="max-height:250px;overflow-y:auto">
+                                        <ul>
+                                            <li id="draggable22">Drag the following accordingly</li>
+                                        </ul>
+                                        <ol id="sortable22" style="list-style-type:none"></ol>
+                                        <script id="changeContributors12" type="text/x-handlebars-template">
+
+                                            <ul id="sortable22">
+                                                {{#each FormContributersList}}
+                                                <li class="ui-state-default dd-handle" name="{{ApproverID}}" id="{{ApproverID}}" isfornewcampus="true" value="{{ApproverID}}">
+                                                    {{Designation}}
+                                                    <i class="primary bigger btn-group pull-right bold icon-minus-sign red2" aria-hidden="true"></i>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background:none;border:none;">
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-primary btn-round" data-dismiss="modal" id="CancelDesignation" name="CancelDesignation">
+                                <i class="ace-icon fa fa-check"></i>
+                                Cancel
+                            </button>
+                        </div><div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-primary btn-round" data-dismiss="modal" id="SaveDesignation" name="SaveDesignation">
+                                <i class="ace-icon fa fa-check"></i>
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    Applications
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        Approvers
+                    </small>
+                </h1>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="message-list-container">
+                                    <div class="message-list" id="Applications">
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.row -->
+
+                        <div class="hr hr-18 dotted hr-double"></div>
+                        <div class="modal-footer no-margin-top">
+
+                            <ul class="pagination pull-right no-margin">
+                                <li class="prev disabled">
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+
+                                <li class="active">
+                                    <a href="#">1</a>
+                                </li>
+
+                                <li>
+                                    <a href="#">2</a>
+                                </li>
+
+                                <li>
+                                    <a href="#">3</a>
+                                </li>
+
+                                <li class="next">
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                </div><!-- PAGE CONTENT ENDS -->
+            </div><!-- main.cont -->
+            <script id="ApplicationsTemplate" type="text/x-handlebars-template">
+                <div id="alldatacontainer">
+                    <table id="simple-table" class="table  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th class="center">#</th>
+                                <th class="center">Category</th>
+                                <th class="center" scope="col" width="5%">
+                                    Add Contributor
+                                </th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {{#each AppList}}
+                            <tr pid="{{CategoryID}}">
+                                <input type="hidden" name="CategoryID" id="CategoryID" value="{{CategoryID}}" />
+
+                                <td align="center" name="CategoryID" id="CategoryID" value={{CategoryID}}>{{CategoryID}}</td>
+                                <td align="center" name="Category" id="Category">{{Category}}</td>
+
+
+                                <td align="center" valign="middle">
+                                    <div class="tblActions">
+
+                                        <a href="#DesignationModals" value="{{CategoryID}}" id="Add_Contributers1" name="Add_Contributers1" role="button" data-toggle="modal" class="Add_Contributers @*btn-new-mail  btn-xs btn-new-mail  btn btn-purple no-border*@" title="Click to Add Contributers">
+                                            <i class="fa fa-user" value="{{CategoryID}}" id="Add_Contributers1" name="Add_Contributers1" aria-hidden="true"></i>
+
+                                        </a>
+                                    </div>
+
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        {{/each}}
+
+                    </table>
+
+                </div>
+            </script>

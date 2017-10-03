@@ -1,0 +1,14 @@
+.ui-multiselect-hasfilter ul { position:relative; top:2px }
+.ui-multiselect-filter { float:left; margin-right:10px; font-size:11px; width: 95% !important }
+.ui-multiselect-filter input { width: 98% !important;
+font-size: 10px;
+margin-left: 5px;
+height: 15px;
+padding: 5px 2px;
+border: none;
+-webkit-appearance: textfield;
+
+border-bottom: solid 1px #eaeaea;
+-webkit-box-sizing: content-box; }
+
+.ui-multiselect-checkboxes label { width: 99%; display: block;}

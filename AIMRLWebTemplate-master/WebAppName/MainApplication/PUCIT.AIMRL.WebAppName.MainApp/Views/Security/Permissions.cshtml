@@ -1,0 +1,204 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section Header
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/mywebapp/Security/mywebapp.ui.permissions.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/mywebapp/ApplicationView/mywebapp.ui.header.js")"></script>
+}
+@section scripts
+{
+    <script type="text/javascript">
+        try { ace.settings.loadState('main-container') } catch (e) { }
+
+        $(document).ready(function () {
+            MyWebApp.UI.Header.readyMain();
+        });
+    </script>
+    <script type="text/javascript">
+
+        try { ace.settings.loadState('main-container') } catch (e) { }
+
+        $(document).ready(function () {
+            MyWebApp.UI.Permission.readyMain();
+        });
+    </script>
+}
+<div class="main-container ace-save-state" id="main-container">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href='@Url.Content("~/Home/")'> Home</a>
+                </li>
+                <li>
+                    <a href='@Url.Content("~/Security/ViewPermissions/")'>Permissions</a>
+                </li>
+                <li class="active" id="PageId" style="display:none">@ViewBag.Id</li>
+            </ul><!-- /.breadcrumb -->
+        </div>
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    Permissions
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        ViewPermissions
+                    </small>
+                    <select style="display:inline ; font-size:small" id="selectType1" >
+                        <option value="-1">All</option>
+                        <option value="1">Active</option>
+                        <option value="0">InActive</option>
+                    </select>
+                    <a role="button" class="btn-new-mail pull-right" data-toggle="modal" id="newpermission">
+                        <span class="btn btn-purple no-border">
+                            <i class="menu-icon fa fa-pencil-square-o"></i>
+                            <span class="bigger-110">Add new Permissions</span>
+                        </span>
+                    </a>
+                </h1>
+            </div>
+        </div>
+
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="message-list-container">
+                        <div class="message-list" id="Permissions">
+                            <table id="simple-table2" class="table  table-bordered table-hover"></table>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+            <div class="hr hr-18 dotted hr-double"></div>
+            <div class="modal-footer no-margin-top">
+                <ul class="pagination pull-right no-margin">
+                    <li class="prev disabled">
+                        <a href="#">
+                            <i class="ace-icon fa fa-angle-double-left"></i>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">
+                            <i class="ace-icon fa fa-angle-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div><!-- PAGE CONTENT ENDS -->
+</div><!-- main.cont -->
+@{
+    Html.RenderAction("YesNoModal", "Partial");
+}
+<div id="modal-form1" class="in" tabindex="-1" " style=" display:none;padding-right:17px">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="ModalClose1" class="close" data-dismiss="modal">×</button>
+                <h4 class="blue bigger">Permission information</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div style="padding-left:50px;">
+                        <input type="hidden" name="hiddenidp" id="hiddenidp" />
+                        <div class="col-xs-5">
+                            <label class="asterisk" for="form-field-first"><b>Name : </b></label>
+                            <input type="text" class="input-sm form-control" id="permissionname" />
+                        </div>
+                    </div>
+                    <div style="padding-left:50px;">
+                        <div class="col-xs-5">
+                            <label class="asterisk" for="form-field-first"><b>Description : </b></label>
+                            <input type="text" class="input-sm form-control" id="permissiondescription" />
+                        </div>
+                    </div>
+                    @*<div style="padding-left:50px;">
+                        <div class="col-xs-5">
+                            <label class="asterisk" for="form-field-first"><b>Is Active : </b></label>
+                            <select class="input-sm form-control" id="IsActive2"  autofocus>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm" data-dismiss="modal" id="CancelPer">
+                    <i class="ace-icon fa fa-times"></i>
+                    Cancel
+                </button>
+                <button class="btn btn-sm btn-primary" id="Saveper">
+                    <i class="ace-icon fa fa-check"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="PermissionTemplate" type="text/x-handlebars-template">
+    <thead>
+        <tr id="#">
+            <th class="center">#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th scope="col" width="5%">
+                Edit
+            </th>
+            <th scope="col" width="5%">
+                Enable/Disable
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each PermissionList}}
+        <tr id="{{Id}}">
+            <td>
+                {{Id}}
+            </td>
+            <td>
+                {{Name}}
+            </td>
+            <td>{{Description}}</td>
+            <td align="center" align="middle">
+                <div class="tblActions">
+                    <a role="button" data-toggle="modal" class="edit btn-xs btn-new-mail  btn btn-purple no-border lnkEdit" title="Click to edit">
+                        <i class="menu-icon fa fa-pencil-square-o"></i>
+                        <span class="bigger-110"></span>
+                    </a>
+                </div>
+            </td>
+            <td align="center" align="middle">
+                <div class="tblActions" isactive="{{IsActive}}">
+                    {{#ifEqual IsActive false}}
+                    <a href="#" class="btn btn-xs btn-round widget-color-green lnkDelete" title="Click to activate">
+                        <i class="ace-icon icon-off"></i>
+                    </a>
+                    {{/ifEqual}}
+                    {{#ifEqual IsActive true}}
+                    <a href="#" class='delete btn btn-xs btn-danger btn-round lnkDelete' title="Click to deactivate">
+                        <i class="ace-icon icon-off"></i>
+                    </a>
+                    {{/ifEqual }}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    {{/each}}
+
+</script>

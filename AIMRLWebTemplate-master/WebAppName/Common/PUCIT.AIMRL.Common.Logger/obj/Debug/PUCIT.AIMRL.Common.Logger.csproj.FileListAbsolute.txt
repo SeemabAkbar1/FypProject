@@ -1,0 +1,7 @@
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common.Logger\bin\Debug\PUCIT.AIMRL.Common.Logger.dll
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common.Logger\bin\Debug\PUCIT.AIMRL.Common.Logger.pdb
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common.Logger\bin\Debug\log4net.dll
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common.Logger\bin\Debug\log4net.xml
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common.Logger\obj\Debug\PUCIT.AIMRL.Common.Logger.csprojResolveAssemblyReference.cache
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common.Logger\obj\Debug\PUCIT.AIMRL.Common.Logger.dll
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common.Logger\obj\Debug\PUCIT.AIMRL.Common.Logger.pdb

@@ -1,0 +1,48 @@
+﻿
+#overlay 
+{
+background:white;
+width:200px;
+height:200px;
+border:4px black;
+display:none;
+z-index:91;
+position:absolute;
+top: 8%;
+bottom:0;
+left: 85%;
+opacity:1.0;
+-moz-opacity:0.45;
+filter:alpha(opacity=45);}
+
+
+.UpdateProgressOverlay
+{
+    -moz-opacity: .5;
+    background-color: #000000;
+    bottom: 0;
+    display: none;
+    filter: alpha(opacity=50);
+    height: 100%;
+    left: 0;
+    opacity: .5;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 8000000;
+}
+.UpdateProgressStatus
+{
+    display: none;
+    left: 50%;
+    margin-top: -50px;
+    position: fixed;
+    top: 50%;
+    z-index: 8000001;
+}
+
+
+li.designation a.selected{
+    background-color: lightgray;
+}

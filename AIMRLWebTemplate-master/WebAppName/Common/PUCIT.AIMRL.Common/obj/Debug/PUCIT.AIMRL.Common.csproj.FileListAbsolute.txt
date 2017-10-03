@@ -1,0 +1,5 @@
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common\bin\Debug\PUCIT.AIMRL.Common.dll
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common\bin\Debug\PUCIT.AIMRL.Common.pdb
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common\obj\Debug\PUCIT.AIMRL.Common.csprojResolveAssemblyReference.cache
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common\obj\Debug\PUCIT.AIMRL.Common.dll
+D:\Workplace - DjJazoo\FYP\AIMRLWebTemplate-master\WebAppName\Common\PUCIT.AIMRL.Common\obj\Debug\PUCIT.AIMRL.Common.pdb
